@@ -3,14 +3,19 @@
 
 Задание
 Добавить в виртуальную машину несколько дисков
+
 Собрать RAID-0/1/5/10 на выбор
+
 Сломать и починить RAID
+
 Создать GPT таблицу, пять разделов и смонтировать их в системе.
 
 Ход выполнения:
 
 На проверку отправьте:
+
 скрипт для создания рейда https://github.com/starikovve/otus_lesson2/blob/main/create_raid_mdadm.sh
+
 отчет по командам для починки RAID и созданию разделов
 
 Отчет по командам
@@ -28,6 +33,7 @@ mdadm /dev/md0 --fail /dev/sde
 
 Проверка состояния массива после сбоя
 После выполнения команды выше, массив переходит в деградированное состояние. Это можно увидеть в выводе cat /proc/mdstat (диск помечен как (F)) и mdadm -D /dev/md0 (статус faulty).
+
 <img width="964" height="175" alt="image" src="https://github.com/user-attachments/assets/b0d73b72-11b4-4abf-b45e-61813756ef11" />
   
 mdadm -D /dev/md0
@@ -75,6 +81,7 @@ parted /dev/md0 mkpart primary ext4 75% 100%
 for i in $(seq 1 4); do mkfs.ext4 /dev/md0p$i; done
 Проверяем 
 lsblk -f
+
 <img width="974" height="507" alt="image" src="https://github.com/user-attachments/assets/2932d25a-68b0-436b-ae89-3794276ebebf" />
  
 Монтирование разделов
