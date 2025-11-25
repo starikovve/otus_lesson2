@@ -1,5 +1,4 @@
 # otus_lesson2
-Administrator Linux. Professional
 Домашнее задание: работа с mdadm по курсу «Администратор Linux. Professional»
 
 Задание
